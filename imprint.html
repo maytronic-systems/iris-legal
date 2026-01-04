@@ -1,92 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Imprint</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imprint – IRIS</title>
+
   <style>
+    :root {
+      --bg0: #070B12;
+      --bg1: #0B1220;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --soft: rgba(255,255,255,0.55);
+
+      --a1: #3B82F6;
+      --a2: #22D3EE;
+
+      --shadow: 0 20px 60px rgba(0,0,0,0.55);
+      --radius: 18px;
+      --radius2: 14px;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #222;
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(59,130,246,0.22), transparent 60%),
+        radial-gradient(900px 600px at 85% 0%, rgba(34,211,238,0.18), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
     }
-    h1, h2 {
-      color: #111;
+
+    a {
+      color: rgba(34,211,238,0.95);
+      text-decoration: none;
     }
-    h1 {
-      margin-bottom: 10px;
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 36px 18px 60px;
     }
-    p {
-      margin-bottom: 12px;
+
+    .topbar {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
-    .meta {
-      color: #555;
-      font-size: 0.95em;
-      margin-bottom: 30px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(34,211,238,0.95), rgba(59,130,246,0.95) 45%, rgba(16,185,129,0.65) 90%);
+      box-shadow: 0 12px 30px rgba(34,211,238,0.18);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    .brand .sub {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+
+    .card {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.035));
+      box-shadow: 0 16px 50px rgba(0,0,0,0.35);
+    }
+
+    .section {
+      padding: 16px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.25);
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,211,238,0.24);
+      color: rgba(34,211,238,0.95);
+      background: rgba(34,211,238,0.08);
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 10px 14px;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.35);
+    }
+
+    .kv div { color: var(--muted); font-size: 13.5px; }
+    .kv b { color: rgba(255,255,255,0.88); }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--soft);
+      font-size: 12.5px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .kv { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<h1>Imprint</h1>
-<p class="meta">Information pursuant to § 5 German Telemedia Act (TMG)</p>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>IRIS – Imprint</h1>
+        <div class="sub">Insight & Recon Interface System</div>
+      </div>
+    </div>
+    <div class="pill">Legal Information</div>
+  </div>
 
-<h2>Service Provider</h2>
-<p>
-<strong>Maytronic Systems</strong><br>
-Owner: Lukas May<br>
-Email: <strong>YOUR_EMAIL_ADDRESS</strong>
-</p>
+  <div class="card">
+    <div class="section">
+      <h2><span class="badge">§5 TMG</span> Service Provider</h2>
+      <div class="kv">
+        <div><b>Name</b></div><div>Maytronic Systems</div>
+        <div><b>Owner</b></div><div>Lukas May</div>
+        <div><b>Email</b></div><div><strong>YOUR_EMAIL_ADDRESS</strong></div>
+        <div><b>Country</b></div><div>Germany</div>
+      </div>
+    </div>
 
-<h2>Responsible for Content</h2>
-<p>
-Lukas May<br>
-(according to § 55 para. 2 German Interstate Broadcasting Treaty – RStV)
-</p>
+    <div class="section">
+      <h2><span class="badge">§55 RStV</span> Responsible for Content</h2>
+      <p>
+        Lukas May<br>
+        (responsible for content according to § 55 para. 2 German Interstate Broadcasting Treaty)
+      </p>
+    </div>
 
-<h2>Business Information</h2>
-<p>
-Sole proprietorship under German law.<br>
-Place of business: Germany
-</p>
+    <div class="section">
+      <h2><span class="badge">Info</span> Business Information</h2>
+      <p>
+        Sole proprietorship under German law.<br>
+        Place of business: Germany
+      </p>
+    </div>
 
-<h2>Disclaimer – Liability for Content</h2>
-<p>
-The contents of these pages were created with great care. However, we cannot guarantee
-the accuracy, completeness or timeliness of the content.
-</p>
-<p>
-As a service provider, we are responsible for our own content on these pages
-in accordance with § 7 para. 1 TMG under general laws.
-</p>
+    <div class="section">
+      <h2><span class="badge">Disclaimer</span> Liability for Content</h2>
+      <p>
+        The contents of these pages were created with great care. However, we cannot guarantee the accuracy,
+        completeness, or timeliness of the content.
+      </p>
+      <p>
+        As a service provider, we are responsible for our own content on these pages in accordance with
+        § 7 para. 1 TMG under general laws.
+      </p>
+    </div>
 
-<h2>Disclaimer – Liability for Links</h2>
-<p>
-Our pages may contain links to external websites of third parties.
-We have no influence on the contents of those websites and therefore cannot assume any liability.
-</p>
-<p>
-The respective provider or operator of the linked pages is always responsible for their content.
-</p>
+    <div class="section">
+      <h2><span class="badge">Links</span> Liability for External Links</h2>
+      <p>
+        Our pages may contain links to external websites of third parties. We have no influence on the
+        contents of those websites and therefore cannot assume any liability.
+      </p>
+      <p>
+        The respective provider or operator of the linked pages is always responsible for their content.
+      </p>
+    </div>
 
-<h2>Copyright</h2>
-<p>
-The content and works created by the site operator on these pages
-are subject to German copyright law.
-</p>
-<p>
-Duplication, processing, distribution, or any form of commercialization of such material
-beyond the scope of the copyright law requires the prior written consent of the author.
-</p>
+    <div class="section">
+      <h2><span class="badge">©</span> Copyright</h2>
+      <p>
+        The content and works created by the site operator on these pages are subject to German copyright law.
+      </p>
+      <p>
+        Duplication, processing, distribution, or any form of commercialization beyond the scope of copyright law
+        requires prior written consent.
+      </p>
+    </div>
 
-<h2>Contact</h2>
-<p>
-If you have any questions regarding this imprint or the legal information provided,
-please contact us via email.
-</p>
+    <div class="footer">
+      <div>© <span id="y"></span> Maytronic Systems • IRIS</div>
+      <div>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
