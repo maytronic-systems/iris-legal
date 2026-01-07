@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support — IRIS</title>
+  <meta name="description" content="Support and FAQ for IRIS (Android). Troubleshooting, permissions, usage access, network stats, and contact." />
+  <meta name="theme-color" content="#081018" />
+
+  <link rel="icon" href="/assets/img/iris-logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="/assets/img/maytronic-logo.svg" class="brand-mark" alt="Maytronic Systems logo" />
+        <span class="brand-text">
+          <strong>Maytronic Systems</strong>
+          <span class="muted">Support</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/iris/">IRIS</a>
+        <a href="/support/" aria-current="page">Support</a>
+        <a href="/press/">Press</a>
+        <a href="/legal/privacy.html">Privacy</a>
+        <a class="btn btn-small" href="/iris/#get">Get IRIS</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" data-mobile-nav hidden>
+      <a href="/iris/">IRIS</a>
+      <a href="/support/">Support</a>
+      <a href="/press/">Press</a>
+      <a href="/legal/privacy.html">Privacy</a>
+      <a href="/legal/imprint.html">Imprint</a>
+      <a class="btn" href="/iris/#get">Get IRIS</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <h1>Support</h1>
+        <p class="lead maxw">
+          IRIS is a visualization and monitoring dashboard. Some Android data sources require explicit user-granted access
+          (e.g., Usage Access). This page explains the most common issues.
+        </p>
+
+        <div class="callout">
+          <strong>Contact:</strong> <a href="mailto:SUPPORT@YOURDOMAIN.TLD">SUPPORT@YOURDOMAIN.TLD</a>
+          <span class="muted">— include device model, Android version, and IRIS app version.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-accent">
+      <div class="container">
+        <h2>FAQ</h2>
+
+        <div class="faq">
+          <details class="card" open>
+            <summary>Why does IRIS ask for “Usage Access”?</summary>
+            <div class="faq-body">
+              <p>
+                Certain dashboards rely on Android usage statistics APIs. Android requires explicit user permission
+                (“Usage Access”) to read those aggregated usage signals.
+              </p>
+              <p class="muted small">
+                IRIS uses this access to visualize usage and related summaries; it does not claim to control other apps.
+              </p>
+            </div>
+          </details>
+
+          <details class="card">
+            <summary>Network traffic values look different from my carrier / router.</summary>
+            <div class="faq-body">
+              <p>
+                Android-provided network statistics may differ from external measurements (carrier, router, VPN, etc.)
+                due to sampling windows, rounding, or measurement boundaries.
+              </p>
+            </div>
+          </details>
+
+          <details class="card">
+            <summary>Why do some apps show limited data?</summary>
+            <div class="faq-body">
+              <p>
+                Some system constraints and OEM implementations limit visibility for certain apps or time windows.
+                If you recently installed IRIS, it may also take time to build meaningful historical summaries.
+              </p>
+            </div>
+          </details>
+
+          <details class="card">
+            <summary>Does IRIS block trackers or prevent network connections?</summary>
+            <div class="faq-body">
+              <p>
+                No. IRIS focuses on visualization and analysis. It provides dashboards and summaries so you can make your own decisions.
+              </p>
+            </div>
+          </details>
+
+          <details class="card">
+            <summary>I purchased Pro but features are locked.</summary>
+            <div class="faq-body">
+              <p>
+                Ensure you are signed in with the same Google account used for purchase. Then try restoring purchases (if available)
+                and restart the app. If it still fails, contact support with your order ID (optional).
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Troubleshooting checklist</h2>
+        <ol class="steps">
+          <li>Update IRIS to the latest version.</li>
+          <li>Restart the device (ensures system stats providers are refreshed).</li>
+          <li>Grant required access (Usage Access, notifications for alerts, etc.).</li>
+          <li>Verify battery optimization settings if background monitoring is used.</li>
+          <li>If needed: send a support email with logs (where available) and your exact steps to reproduce.</li>
+        </ol>
+
+        <div class="divider"></div>
+
+        <h2>Legal & policies</h2>
+        <p class="muted maxw">
+          For details on data handling and contact information, see our legal pages.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="/legal/privacy.html">Privacy policy</a>
+          <a class="btn btn-ghost" href="/legal/imprint.html">Imprint</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Maytronic Systems</strong><br />
+        <span class="muted">IRIS Support</span>
+        <p class="muted small">© <span data-year></span></p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <div class="footer-title">Links</div>
+          <a href="/iris/">IRIS</a>
+          <a href="/press/">Press</a>
+        </div>
+        <div>
+          <div class="footer-title">Legal</div>
+          <a href="/legal/privacy.html">Privacy</a>
+          <a href="/legal/imprint.html">Imprint</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
