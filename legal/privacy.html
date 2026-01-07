@@ -1,364 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
   <base href="/Maytronic_Systems_Web/">
-  <title>Privacy Policy – IRIS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    :root {
-      /* IRIS-inspired palette (neutral, blue→turquoise) */
-      --bg0: #070B12;
-      --bg1: #0B1220;
-      --card: rgba(255,255,255,0.06);
-      --card2: rgba(255,255,255,0.08);
-      --border: rgba(255,255,255,0.10);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.68);
-      --soft: rgba(255,255,255,0.55);
+  <title>Privacy Policy — Maytronic Systems / IRIS</title>
+  <meta name="description" content="Privacy Policy for IRIS — Insight & Recon Interface System. Local-first analysis and visualization." />
+  <meta name="theme-color" content="#081018" />
 
-      --a1: #3B82F6;   /* blue */
-      --a2: #22D3EE;   /* cyan/turquoise */
-      --a3: #10B981;   /* subtle green (optional) */
-
-      --shadow: 0 20px 60px rgba(0,0,0,0.55);
-      --radius: 18px;
-      --radius2: 14px;
-
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-
-    body {
-      margin: 0;
-      font-family: var(--sans);
-      color: var(--text);
-      background:
-        radial-gradient(1200px 700px at 15% -10%, rgba(59,130,246,0.22), transparent 60%),
-        radial-gradient(900px 600px at 85% 0%, rgba(34,211,238,0.18), transparent 55%),
-        radial-gradient(900px 700px at 50% 105%, rgba(16,185,129,0.10), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-    }
-
-    a {
-      color: rgba(34,211,238,0.95);
-      text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 36px 18px 60px;
-    }
-
-    .topbar {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 18px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(34,211,238,0.95), rgba(59,130,246,0.95) 45%, rgba(16,185,129,0.65) 90%);
-      box-shadow: 0 12px 30px rgba(34,211,238,0.18);
-      border: 1px solid rgba(255,255,255,0.16);
-      position: relative;
-      overflow: hidden;
-    }
-    .logo::after {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-      transform: rotate(25deg);
-      animation: sheen 7s linear infinite;
-    }
-    @keyframes sheen {
-      0%   { transform: translateX(-30%) rotate(25deg); opacity: 0; }
-      15%  { opacity: 1; }
-      40%  { opacity: 0.2; }
-      100% { transform: translateX(60%) rotate(25deg); opacity: 0; }
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-size: 16px;
-      letter-spacing: 0.4px;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .brand .sub {
-      margin: 2px 0 0;
-      color: var(--muted);
-      font-size: 12.5px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      color: var(--muted);
-      font-size: 12.5px;
-      white-space: nowrap;
-    }
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--a1), var(--a2));
-      box-shadow: 0 0 0 3px rgba(34,211,238,0.12);
-    }
-
-    .hero {
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.035));
-      box-shadow: 0 16px 50px rgba(0,0,0,0.35);
-    }
-
-    .hero h2 {
-      margin: 0 0 8px;
-      font-size: 26px;
-      letter-spacing: 0.2px;
-    }
-    .hero p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.7;
-      max-width: 72ch;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .nav, .card {
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.045);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.28);
-    }
-
-    .nav {
-      padding: 14px;
-      position: sticky;
-      top: 16px;
-      align-self: start;
-    }
-
-    .nav h3 {
-      margin: 0 0 8px;
-      font-size: 13px;
-      color: var(--soft);
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-    }
-
-    .nav a {
-      display: block;
-      padding: 10px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      color: rgba(255,255,255,0.86);
-      font-size: 13.5px;
-    }
-
-    .nav a:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(34,211,238,0.20);
-      text-decoration: none;
-    }
-
-    .content {
-      padding: 14px;
-    }
-
-    .section {
-      padding: 16px;
-      border-radius: var(--radius2);
-      border: 1px solid rgba(255,255,255,0.10);
-      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.035));
-      margin-bottom: 14px;
-    }
-
-    .section h3 {
-      margin: 0 0 10px;
-      font-size: 16px;
-      letter-spacing: 0.2px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .badge {
-      font-family: var(--mono);
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(34,211,238,0.24);
-      color: rgba(34,211,238,0.95);
-      background: rgba(34,211,238,0.08);
-    }
-
-    .section p {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    .section ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    .section li { margin-bottom: 8px; }
-
-    .kv {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 10px 14px;
-      margin-top: 10px;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.25);
-    }
-    .kv div { color: var(--muted); font-size: 13.5px; }
-    .kv b { color: rgba(255,255,255,0.88); font-weight: 700; }
-
-    .footer {
-      margin-top: 18px;
-      color: var(--soft);
-      font-size: 12.5px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      opacity: 0.95;
-    }
-
-    .footer .links a { color: var(--soft); }
-    .footer .links a:hover { color: rgba(34,211,238,0.95); }
-
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-      .nav { position: relative; top: 0; }
-      .kv { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="icon" href="/assets/img/iris-logo.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/site.manifest" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>IRIS – Privacy Policy</h1>
-          <div class="sub">Insight & Recon Interface System</div>
-        </div>
-      </div>
-      <div class="pill"><span class="dot"></span> Local-first • No tracking • No ads</div>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/Maytronic_Systems_Web/">
+        <img src="/assets/img/maytronic-logo.svg" class="brand-mark" alt="Maytronic Systems logo" />
+        <span class="brand-text">
+          <strong>Maytronic Systems</strong>
+          <span class="muted">Privacy</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/iris/">IRIS</a>
+        <a href="/support/">Support</a>
+        <a href="/press/">Press</a>
+        <a href="/legal/privacy.html" aria-current="page">Privacy</a>
+        <a class="btn btn-small" href="/iris/#get">Get IRIS</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
-    <div class="hero">
-      <h2>Your Phone. Your Rules.</h2>
-      <p>
-        IRIS analyzes and visualizes system-related information on your Android device. All processing is performed locally on your device.
-        This policy explains what data IRIS processes and why.
-      </p>
+    <div class="mobile-nav" data-mobile-nav hidden>
+      <a href="/iris/">IRIS</a>
+      <a href="/support/">Support</a>
+      <a href="/press/">Press</a>
+      <a href="/legal/privacy.html" aria-current="page">Privacy</a>
+      <a href="/legal/imprint.html">Imprint</a>
+      <a class="btn" href="/iris/#get">Get IRIS</a>
     </div>
+  </header>
 
-    <div class="grid">
-      <aside class="nav" aria-label="On-page navigation">
-        <h3>Sections</h3>
-        <a href="#controller">1. Controller</a>
-        <a href="#general">2. General information</a>
-        <a href="#data">3. Types of data processed</a>
-        <a href="#permissions">4. Android permissions</a>
-        <a href="#purpose">5. Purpose</a>
-        <a href="#legalbasis">6. Legal basis</a>
-        <a href="#storage">7. Storage & deletion</a>
-        <a href="#sharing">8. Data sharing</a>
-        <a href="#thirdparty">9. Third-party services</a>
-        <a href="#rights">10. User rights</a>
-        <a href="#authority">11. Supervisory authority</a>
-        <a href="#changes">12. Changes</a>
-      </aside>
+  <main id="main">
+    <section class="section">
+      <div class="container">
 
-      <main class="card content">
-        <section class="section" id="controller">
-          <h3><span class="badge">01</span> Controller</h3>
-          <p>
+        <h1>Privacy Policy</h1>
+        <p class="muted maxw">
+          IRIS analyzes and visualizes system-related information on your Android device. All processing is performed locally on your device.
+          This policy explains what data IRIS processes and why.
+        </p>
+
+        <div class="card">
+          <p class="badge">Local-first • No tracking • No ads</p>
+
+          <div class="divider"></div>
+
+          <h2 id="controller">1. Controller</h2>
+          <p class="muted">
             The controller responsible for data processing within the meaning of the General Data Protection Regulation (GDPR) is:
           </p>
-          <div class="kv">
-            <div><b>Provider</b></div><div>Maytronic Systems</div>
-            <div><b>Owner</b></div><div>Lukas May</div>
-            <div><b>Email</b></div><div><strong>YOUR_EMAIL_ADDRESS</strong></div>
-          </div>
-        </section>
 
-        <section class="section" id="general">
-          <h3><span class="badge">02</span> General Information</h3>
-          <p>
-            IRIS – Insight & Recon Interface System provides analysis and visualization of system-related information on Android devices,
+          <div class="kv">
+            <div class="k">Provider</div>
+            <div class="v">Maytronic Systems</div>
+
+            <div class="k">Owner</div>
+            <div class="v">Lukas May</div>
+
+            <div class="k">Email</div>
+            <div class="v">
+              <a href="mailto:may@maytronic-systems.com">may@maytronic-systems.com</a>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <h2 id="general">2. General information</h2>
+          <p class="muted">
+            IRIS — Insight &amp; Recon Interface System provides analysis and visualization of system-related information on Android devices,
             including app activity, permissions, and network statistics.
           </p>
-          <p>
+          <p class="muted">
             All processing is performed <strong>exclusively locally on the user’s device</strong>. No personal data is transmitted to external servers.
           </p>
-          <p>
+          <p class="muted">
             IRIS does not create user profiles, does not track users, and does not collect personal content, location data, or communication data.
           </p>
-        </section>
 
-        <section class="section" id="data">
-          <h3><span class="badge">03</span> Types of Data Processed</h3>
-          <p>Depending on enabled features, IRIS may process the following data locally on the device:</p>
-          <ul>
+          <div class="divider"></div>
+
+          <h2 id="data">3. Types of data processed</h2>
+          <p class="muted">Depending on enabled features, IRIS may process the following data locally on the device:</p>
+          <ul class="check">
             <li>List of installed applications</li>
             <li>Application names, package names, and icons</li>
             <li>Granted application permissions</li>
@@ -366,108 +109,125 @@
             <li>Aggregated network traffic data (upload and download volumes)</li>
             <li>User-defined rules, alerts, and configuration settings</li>
           </ul>
-          <p>All data remains stored exclusively on the user’s device.</p>
-        </section>
+          <p class="muted">All data remains stored exclusively on the user’s device.</p>
 
-        <section class="section" id="permissions">
-          <h3><span class="badge">04</span> Android Permissions</h3>
-          <p>IRIS may request the following Android system permissions to provide its features:</p>
-          <ul>
+          <div class="divider"></div>
+
+          <h2 id="permissions">4. Android permissions</h2>
+          <p class="muted">IRIS may request the following Android system permissions to provide its features:</p>
+          <ul class="check">
             <li><strong>Usage Access (PACKAGE_USAGE_STATS):</strong> used to display app usage duration, foreground/background activity, and activity timelines.</li>
             <li><strong>Network statistics access:</strong> used to display app-level traffic and aggregated data usage.</li>
             <li><strong>Installed applications access:</strong> used to identify installed apps and analyze permissions and metadata.</li>
             <li><strong>Notifications (optional):</strong> used exclusively for event-based notifications triggered by user-defined rules.</li>
           </ul>
-        </section>
 
-        <section class="section" id="purpose">
-          <h3><span class="badge">05</span> Purpose of Processing</h3>
-          <p>Data is processed solely for the following purposes:</p>
-          <ul>
+          <div class="divider"></div>
+
+          <h2 id="purpose">5. Purpose of processing</h2>
+          <p class="muted">Data is processed solely for the following purposes:</p>
+          <ul class="check">
             <li>Analysis and visualization of application activity</li>
             <li>Display of system and usage statistics</li>
             <li>Transparency regarding application permissions</li>
             <li>Event-based notifications according to user configuration</li>
           </ul>
-        </section>
 
-        <section class="section" id="legalbasis">
-          <h3><span class="badge">06</span> Legal Basis</h3>
-          <p>Data processing is based on the following legal grounds:</p>
-          <ul>
-            <li><strong>Article 6(1)(b) GDPR</strong> – performance of the app’s functionality</li>
-            <li><strong>Article 6(1)(a) GDPR</strong> – user consent by granting system permissions</li>
+          <div class="divider"></div>
+
+          <h2 id="legalbasis">6. Legal basis</h2>
+          <p class="muted">Data processing is based on the following legal grounds:</p>
+          <ul class="check">
+            <li><strong>Article 6(1)(b) GDPR</strong> — performance of the app’s functionality</li>
+            <li><strong>Article 6(1)(a) GDPR</strong> — user consent by granting system permissions</li>
           </ul>
-        </section>
 
-        <section class="section" id="storage">
-          <h3><span class="badge">07</span> Data Storage and Deletion</h3>
-          <p>
+          <div class="divider"></div>
+
+          <h2 id="storage">7. Storage and deletion</h2>
+          <p class="muted">
             All data is stored locally on the user’s device. No cloud synchronization or external storage is used.
             All stored data is deleted when the app is uninstalled.
           </p>
-        </section>
 
-        <section class="section" id="sharing">
-          <h3><span class="badge">08</span> Data Sharing</h3>
-          <p>No personal data is shared with third parties.</p>
-        </section>
+          <div class="divider"></div>
 
-        <section class="section" id="thirdparty">
-          <h3><span class="badge">09</span> Third-Party Services</h3>
-          <p>
+          <h2 id="sharing">8. Data sharing</h2>
+          <p class="muted">No personal data is shared with third parties.</p>
+
+          <div class="divider"></div>
+
+          <h2 id="thirdparty">9. Third-party services</h2>
+          <p class="muted">
             IRIS does not use external analytics, tracking, or advertising services.
             If in-app purchases are offered, payment processing is handled exclusively by the Google Play Store
             in accordance with Google’s privacy policies.
           </p>
-        </section>
 
-        <section class="section" id="rights">
-          <h3><span class="badge">10</span> User Rights</h3>
-          <p>Users have the right to:</p>
-          <ul>
+          <div class="divider"></div>
+
+          <h2 id="rights">10. User rights</h2>
+          <p class="muted">Users have the right to:</p>
+          <ul class="check">
             <li>Access their data</li>
             <li>Request correction or deletion</li>
             <li>Restrict processing</li>
             <li>Withdraw consent at any time</li>
           </ul>
-          <p>
+          <p class="muted">
             Since all data is stored locally, these rights can be exercised directly through the app or by uninstalling it.
           </p>
-        </section>
 
-        <section class="section" id="authority">
-          <h3><span class="badge">11</span> Supervisory Authority</h3>
-          <p>
+          <div class="divider"></div>
+
+          <h2 id="authority">11. Supervisory authority</h2>
+          <p class="muted">
             Users may lodge a complaint with a competent data protection supervisory authority.
           </p>
-        </section>
 
-        <section class="section" id="changes">
-          <h3><span class="badge">12</span> Changes to This Policy</h3>
-          <p>
+          <div class="divider"></div>
+
+          <h2 id="changes">12. Changes to this policy</h2>
+          <p class="muted">
             This privacy policy may be updated to reflect functional or legal changes.
           </p>
-          <p style="margin-bottom:0;">
-            <span style="color: rgba(255,255,255,0.82); font-weight: 700;">Last updated:</span> January 2026
+          <p class="small muted">
+            <strong>Last updated:</strong> January 2026
           </p>
-        </section>
 
-        <div class="footer">
-          <div>© <span id="y"></span> Maytronic Systems • IRIS</div>
-          <div class="links">
-            <a href="imprint.html">Imprint</a>
-            <span style="opacity:0.5;"> • </span>
-            <a href="#controller">Back to top</a>
+          <div class="divider"></div>
+
+          <p class="small muted">
+            Related: <a href="/legal/imprint.html">Imprint</a> • <a href="#controller">Back to top</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="/assets/img/maytronic-logo.svg" alt="" class="footer-mark" />
+          <div>
+            <strong>Maytronic Systems</strong><br />
+            <span class="muted">Privacy</span>
           </div>
         </div>
-      </main>
-    </div>
-  </div>
+        <p class="muted small">© <span data-year></span> Maytronic Systems.</p>
+      </div>
 
-  <script>
-    // purely cosmetic (no tracking, no network calls)
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+      <div class="footer-links">
+        <div>
+          <div class="footer-title">Legal</div>
+          <a href="/legal/privacy.html" aria-current="page">Privacy</a>
+          <a href="/legal/imprint.html">Imprint</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
