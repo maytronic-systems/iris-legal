@@ -1,28 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description | escape }}" />{% endif %}
+  <meta name="theme-color" content="#081018" />
 
-  <title>
-    {% if page.title %}{{ page.title }} – {% endif %}{{ site.title }}
-  </title>
-
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-  <script defer src="{{ '/assets/js/main.js' | relative_url }}"></script>
-
-  {%- if site.static_files -%}
-  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
-  {%- endif -%}
+  <link rel="icon" href="{{ '/assets/img/iris-logo.svg' | relative_url }}" type="image/svg+xml" />
+  <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
 </head>
-
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   {% include nav.html %}
 
-  <main id="content">
+  <main id="main">
     {{ content }}
   </main>
 
-  {% include footer.html %}
+  <script defer src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
