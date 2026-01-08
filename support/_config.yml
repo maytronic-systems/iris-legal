@@ -1,0 +1,6 @@
+title: "Maytronic Systems"
+baseurl: "/Maytronic_Systems_Web"
+url: "https://maytronic-systems.github.io"
+
+markdown: kramdown
+permalink: pretty
